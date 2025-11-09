@@ -1,0 +1,29 @@
+
+.btn.btn-neon {
+  /* 1) on calcule les valeurs une fois (aucun piège de syntaxe dans l'include) */
+  $bg-rest:    rgba($neon-500, .08);
+  $br-rest:    rgba($neon-500, .28);
+  $bg-hover:   rgba($neon-500, .16);
+  $br-hover:   rgba($neon-500, .45);
+  $bg-active:  rgba($neon-500, .22);
+  $br-active:  rgba($neon-500, .60);
+
+  /* 2) on appelle le mixin avec des variables toutes prêtes */
+  @include button-variant(
+    $background:        $bg-rest,
+    $border:            $br-rest,
+    $color:             #fff,
+
+    $hover-background:  $bg-hover,
+    $hover-border:      $br-hover,
+    $hover-color:       #fff,
+
+    $active-background: $bg-active,
+    $active-border:     $br-active,
+    $active-color:      #fff
+  );
+
+  /* 3) glow partagé (même rendu que les autres éléments) */
+  @include neon-box-glow($neon-500, $neon-rest, $neon-hover, $neon-active, $neon-focus);
+}
+

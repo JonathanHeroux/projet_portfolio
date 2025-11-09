@@ -1,0 +1,19 @@
+{
+  "name": "projet_portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:watch": "sass --watch app/view/design/scss/main.scss:public/assets/css/main.css",
+    "sass:build": "sass app/view/design/scss/main.scss:public/assets/css/main.css --style=compressed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.93.2"
+  }
+}

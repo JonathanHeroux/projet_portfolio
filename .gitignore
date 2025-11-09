@@ -1,0 +1,33 @@
+# ⚙️ Générés par Sass (TA cible)
+public/assets/css/**
+!public/assets/css/.gitkeep
+public/assets/css/**/*.map
+*.css.map
+*.map
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node
+node_modules/
+npm-debug.log*
+*.log
+
+# PHP / Composer
+/vendor/
+/composer.phar
+# (on GARDE composer.lock)
+
+# Builds / caches (si jamais)
+.parcel-cache/
+dist/
+build/
+.cache/
+
+# Secrets (si un jour tu as un .env)
+.env
+.env.*
+*.local

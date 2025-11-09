@@ -1,0 +1,43 @@
+$spacers: map-merge($spacers, (
+6: $spacer * 4,
+7: $spacer * 5,
+8: $spacer * 6,
+9: $spacer * 7,
+10: $spacer * 8
+));
+
+
+$body-bg: #111315;
+
+$navbar-bg:#b01010; 
+$navbar-dark-color:white;
+$navbar-dark-hover-color:#1f7676;
+$navbar-dark-active-color:#1f7676;
+$navbar-dark-brand-color:white;
+$navbar-dark-brand-hover-color:#1f7676;
+
+$custom-colors:(
+    "blue":#00d6cc,
+    "white":#fff,
+    "black":black,
+    "orange":#c95100,
+    "green":#1f7676,
+    "yellow":#ecdc08,
+    "silver":#f7c59f,
+    "beige":#91aaaa5b
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$font-playfair:'Playfair Display',Georgia,serif;
+$font-navbar:$font-playfair;
+// #00d6cc
+/* NEON – teinte + intensités partagées */
+$neon-500:  #00d6cc;  // ta couleur néon
+$neon-rest:  .12;     // repos
+$neon-hover: .25;     // hover
+$neon-active:.30;     // active
+$neon-focus: .35;     // focus
+
+
+

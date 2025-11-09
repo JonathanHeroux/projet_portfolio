@@ -1,0 +1,43 @@
+
+.text-neon-exact {
+  color: #cecaca;
+  @include neon-text-glow($neon-500, $neon-rest, $neon-hover, $neon-active, $neon-focus);
+}
+
+.cta-wrap { 
+
+    margin-top: .25rem;
+}
+
+.cta-note{
+
+    font-size: .95rem;
+    opacity: .85;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+
+    @include neon-text-glow($neon-500, $neon-rest * .7, $neon-hover * .6, $neon-active * .6, $neon-focus * .6);
+
+
+    &::before,
+    &::after{
+        content: "↓";
+        font-size: 2rem;
+        line-height: 1;
+        opacity: .7;
+        text-shadow: 0 0 6px rgba($neon-500, $neon-rest * .7), 0 0 18px rgba($neon-500, $neon-rest * .6);
+    }
+}
+
+.animFadeIn{
+  animation: fadeIn var(--time, 0.7s) ease-in var(--delay, 0s) both;
+}
+
+.animToRight{
+  animation: leftToRight var(--time, 0.7s) ease-in var(--delay, 0s) both;
+}
+
+.animToLeft{
+  animation: rightToLeft var(--time, 0.7s) ease-in var(--delay, 0s) both;
+}

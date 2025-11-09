@@ -1,0 +1,78 @@
+
+/* Halo néon pour n'importe quel BLOC (bouton, card, etc.) */
+@mixin neon-box-glow($color, $rest, $hover, $active, $focus) {
+  /* repos */
+  box-shadow:
+    0 0 0 1px rgba($color, $rest) inset,
+    0 0 12px rgba($color, $rest);
+
+  transition: box-shadow .25s ease, transform .15s ease;
+
+  /* hover */
+  &:hover {
+    box-shadow:
+      0 0 0 1px rgba($color, $hover) inset,
+      0 0 18px rgba($color, $hover),
+      0 0 42px rgba($color, $hover * .8);
+    transform: translateY(-1px);
+  }
+
+  /* active */
+  &:active {
+    transform: translateY(0);
+    box-shadow:
+      0 0 0 1px rgba($color, $active) inset,
+      0 0 14px rgba($color, $active),
+      0 0 54px rgba($color, $active * .83);
+  }
+
+  /* focus */
+  &:focus-visible {
+    outline: 0;
+    box-shadow:
+      0 0 0 $btn-focus-width rgba($color, $focus),
+      0 0 18px rgba($color, .22),
+      0 0 48px rgba($color, .18);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none; transform: none;
+  }
+}
+
+/* Halo néon pour du TEXTE — calé sur les mêmes intensités */
+@mixin neon-text-glow($color, $rest, $hover, $active, $focus) {
+  /* repos */
+  text-shadow:
+    0 0 6px  rgba($color, $rest),
+    0 0 18px rgba($color, $rest),
+    0 0 42px rgba($color, $rest * .83);
+
+  transition: text-shadow .2s ease;
+
+  /* hover */
+  &:hover {
+    text-shadow:
+      0 0 6px  rgba($color, $hover),
+      0 0 22px rgba($color, $hover),
+      0 0 54px rgba($color, $hover * .8);
+  }
+
+  /* active (optionnel sur texte) : un cran entre hover et focus */
+  &:active {
+    text-shadow:
+      0 0 6px  rgba($color, $active),
+      0 0 22px rgba($color, $active),
+      0 0 54px rgba($color, $active * .83);
+  }
+
+  /* focus utile si élément focusable (lien, bouton) */
+  &:focus-visible {
+    text-shadow:
+      0 0 6px  rgba($color, $focus),
+      0 0 22px rgba($color, .22),
+      0 0 54px rgba($color, .18);
+  }
+
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}

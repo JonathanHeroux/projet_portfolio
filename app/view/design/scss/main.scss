@@ -1,0 +1,18 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "variables";
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+@import "mixins";
+@import 'buttons';
+@import 'base';
+@import "animations";
+@import "home";
+
+
+:root {
+--bs-link-color: #e6e6ea; /* couleur par défaut (pas bleu) */
+--bs-link-hover-color: #ffffff; /* couleur au survol */
+--bs-link-decoration: none; /* pas de soulignement */
+--bs-link-hover-decoration: none; /* pas de soulignement au survol */
+}
