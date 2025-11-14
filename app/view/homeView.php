@@ -24,14 +24,32 @@ ob_start();
                 <div class="d-flex flex-column align-items-center w-100">
                     <div class=" d-flex flex-column align-items-center gap-4 w-100 flex-grow-1 justify-content-center">
             
-                        <button id="projectBtn" class=" btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:0s;"> Projects </button>
-                        <button id="articleBtn" class=" btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:0.5s;"> Article </button>
-                        <button id="aboutMeBtn" class=" btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:1s;"> About me </button>
+                        <a href="?page=projects" id="projectBtn" class=" btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:0s;"> Projects </a>
+                        <a href="?page=articles" id="articleBtn" class=" btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:0.5s;" > Articles </a>
+                        <a href="?page=aboutme" id="aboutMeBtn" class=" btn btn-neon fw-bold rounded w-50 animToLeft text-decoration-none" style="--delay:1s;"> About me </a>
                     </div>
 
                     <div class="vstack align-items-center justify-content-center cta-wrap w-100">
                         <p class=" fw-lighter fst-italic cta-note fs-5 animToLeft" style="--delay:1.6s;">Where the ideas become reality</p>
-                        <button id="contactBtn" class="btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:2s;" data-bs-toggle="modal" data-bs-target="#contactModal"> Contact </button>
+                            <button id="contactBtn" class="btn btn-neon fw-bold rounded w-50 animToLeft" style="--delay:2s;" data-bs-toggle="collapse" data-bs-target="#contactPanel" aria-expanded="false" aria-controls="contactPanel"> Contact </button>
+                                <div id="contactPanel" class="collapse mt-3 w-100">
+                                    <form id="formContact" class="mt-2">
+                                        <div class="mt-2">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" name="name" id="name" class="form-control text-white">
+                                        </div>
+                                        <div class="mt-2">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" name="email" id="email" class="form-control text-white">
+                                        </div>
+                                        <div class="mt-4">
+                                            <textarea name="message" id="message" rows="5" cols="50" class="form-control text-white" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-neon fw-bold rounded w-25 mt-3">Send</button>
+                                        </div>
+                                    </form>
+                                </div>
                     </div>
                 </div>
             </div>
@@ -42,6 +60,6 @@ ob_start();
 <?php
 
 $content = ob_get_clean();
-require __DIR__ . '/base.php';
+require __DIR__ . '/baseView.php';
 
 ?>

@@ -7,8 +7,20 @@ try{
         if($_GET['page'] === "home"){
             home();
         }
+
+        elseif($_GET['page'] === "projects"){
+            projects();
+        }
+        elseif($_GET['page'] === "articles"){
+            articles();
+        }
+        elseif($_GET['page'] === "aboutme"){
+            aboutMe();
+        }
+
         else{
             throw new Exception("This page can't be reach or doesn't exist.");
+            pageError();
         }
     
     } else {
