@@ -17,6 +17,12 @@ try{
         elseif($_GET['page'] === "aboutme"){
             aboutMe();
         }
+        elseif($_GET['page'] === "contact"){
+            contact();
+        }
+        elseif($_GET['page'] === "login"){
+            logIn();
+        }
 
         else{
             throw new Exception("This page can't be reach or doesn't exist.");

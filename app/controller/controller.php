@@ -25,6 +25,15 @@ function pageError(){
     require __DIR__ . '/../view/errorView.php';
 }
 
+function contact(){
+
+    require __DIR__ . '/../view/contactView.php';
+}
+function logIn(){
+
+    require __DIR__ . '/../view/logInView.php';
+}
+
 
 
 

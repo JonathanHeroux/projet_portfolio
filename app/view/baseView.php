@@ -32,6 +32,9 @@ date_default_timezone_set('America/Toronto');
                             <li class="nav-item">
                                 <a href="?page=contact" class="nav-link">Contact</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="?page=login" class="nav-link">Log in</a>
+                            </li>
                         </ul>
 
                     </div>
