@@ -10,10 +10,11 @@
 @import "home";
 @import "projects";
 @import "login";
+@import "articles";
 
 :root {
---bs-link-color: #e6e6ea; /* couleur par défaut (pas bleu) */
---bs-link-hover-color: #ffffff; /* couleur au survol */
---bs-link-decoration: none; /* pas de soulignement */
---bs-link-hover-decoration: none; /* pas de soulignement au survol */
+--bs-link-color: #e6e6ea; 
+--bs-link-hover-color: #ffffff; 
+--bs-link-decoration: none; 
+--bs-link-hover-decoration: none; 
 }

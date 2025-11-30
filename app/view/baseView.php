@@ -15,6 +15,7 @@ date_default_timezone_set('America/Toronto');
     <title>Jonathan Heroux - <?=$title ?></title>
 </head>
 <body class=" body-bg d-flex flex-column min-vh-100">
+    <div id="alerts-container"></div>
     <header>
             <nav class="navbar navbar-dark navbar-expand-md animFadeIn">
                 <div class="container">
@@ -33,7 +34,11 @@ date_default_timezone_set('America/Toronto');
                                 <a href="?page=contact" class="nav-link">Contact</a>
                             </li>
                             <li class="nav-item">
+                                <?php if(!empty($_SESSION['connect'])): ?>
+                                <a href="?page=logout" class="nav-link">Log out</a>
+                                <?php else: ?>
                                 <a href="?page=login" class="nav-link">Log in</a>
+                                <?php endif; ?>
                             </li>
                         </ul>
 
@@ -52,7 +57,7 @@ date_default_timezone_set('America/Toronto');
     <footer class="mt-auto">
     <div class="container text-center d-flex justify-content-end animFadeIn">
         <p class="text-white mb-0">
-            <?php echo date('Y')?> © Copyright Jonathan Heroux        </p>
+            <?php echo date('Y')?> © Copyright Jonathan Heroux</p>
     </div>
     </footer> 
     

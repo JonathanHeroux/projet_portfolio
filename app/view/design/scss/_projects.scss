@@ -1,15 +1,16 @@
 .project-frame-wrapper {
     width: 100%;
-    /* pour éviter que ça devienne trop large sur grand écran, si tu veux */
+    
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* L'iframe prend toute la largeur dispo et une bonne partie de la hauteur */
+
 #projectFrame {
     display: block;
     width: 100%;
     max-width: 100%;
-    height: 95vh;      /* 85% de la hauteur de la fenêtre */
+    height: 95vh;      
     border: 0;
 }
+

@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require __DIR__ . '/../app/controller/controller.php';
 
 try{
@@ -22,6 +22,12 @@ try{
         }
         elseif($_GET['page'] === "login"){
             logIn();
+        }
+        elseif($_GET['page'] === "logout"){
+            logOut();
+        }
+        elseif($_GET['page'] === "register"){
+            register();
         }
 
         else{

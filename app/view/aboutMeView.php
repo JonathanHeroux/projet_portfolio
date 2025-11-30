@@ -7,7 +7,7 @@ ob_start();
 ?>
 
 <section class="container">
-<p class="display-5  fst-italic">Hello, i'm jonathan and i'm a studen from Believemy since april 2024. My skills are html, css, javascript and now i'm learning php, bootstrap and sass. </p>
+<p class="display-5  fst-italic">Hello, i'm jonathan and i'm a studen from Believemy since april 2025. My skills are html, css, javascript and now i'm learning php, bootstrap and sass. </p>
 </section>
 
 <?php
