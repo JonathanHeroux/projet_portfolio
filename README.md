@@ -24,4 +24,11 @@ Public site
 
 - Secure login system with role when subscribe.
 - CRUD operations for: projects, articles, users.
-  
+
+Tech Stack
+
+Languages
+- PHP
+- JS
+- Bootstrap
+- SCSS
