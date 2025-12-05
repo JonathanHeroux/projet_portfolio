@@ -29,6 +29,10 @@ try{
         elseif($_GET['page'] === "register"){
             register();
         }
+        elseif($_GET['page'] === "article"){
+            article();
+        }
+
 
         else{
             throw new Exception("This page can't be reach or doesn't exist.");

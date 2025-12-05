@@ -34,7 +34,8 @@ ob_start();
         <p class="display-6 mt-5 fst-italic">To make comments you have to sign in first</p>
         <div class="mt-3" style="width:300px">
             <form method="post" action="index.php?page=register" class="vstack login-form">
-                <input type="email" name="email" class=" bg-dark text-white" placeholder="Votre email" required />
+                <input type="text" name="name" id="name" class="bg-dark text-white"placeholder="Your name" required>
+                <input type="email" name="email" class=" bg-dark text-white" placeholder="Your email" required />
                 <input type="password" name="password" class=" bg-dark text-white" placeholder="Password" required />
                 <input type="password" name="password_two" class=" bg-dark text-white" placeholder="Confirm password" required />
                 <button type="submit" class="btn btn-neon">Subscribe </button>

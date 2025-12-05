@@ -15,7 +15,7 @@ class UserManager extends Manager{
         return $result['numberMail'] !=0;
     }
 
-    public function createUser($email, $password){
+    public function createUser($name, $email, $password){
 
         $bdd = $this->connection();
 
@@ -24,8 +24,8 @@ class UserManager extends Manager{
         $secret = sha1($email) . time();
         $secret = sha1($secret) . time();
 
-        $insert = $bdd->prepare('INSERT INTO users(email, password, secret) VALUES (?,?,?)');
-        $insert->execute([$email, $password, $secret]);
+        $insert = $bdd->prepare('INSERT INTO users(name, email, password, secret) VALUES (?,?,?,?)');
+        $insert->execute([$name, $email, $password, $secret]);
     }
 
     public function getUserByEmail($email){

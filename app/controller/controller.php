@@ -4,6 +4,8 @@ require __DIR__ . '/../model/Manager.php';
 require __DIR__ . '/../model/UserManager.php';
 require __DIR__ . '/../model/ArticleManager.php';
 require __DIR__ . '/../model/ProjectManager.php';
+require __DIR__ . '/../model/CommentManager.php';
+
 
 
 
@@ -133,11 +135,75 @@ function articles(){
     require __DIR__ . '/../view/articlesView.php';
 }
 
+function article(){
+    if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
+        throw new Exception("Invalid article id.");
+    }
+
+    $id = (int) $_GET['id'];
+
+    $articleManager = new ArticleManager();
+    $commentManager = new CommentManager();
+
+    $article = $articleManager->getArticleById($id);
+
+    if (!$article) {
+        throw new Exception("Article not found.");
+    }
+
+    $error = null;
+
+    if (!empty($_SESSION['connect']) && $_SESSION['role'] === 'admin' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        if (!empty($_POST['delete_comment_id'])) {
+            $commentManager->deleteComment((int)$_POST['delete_comment_id']);
+            header('Location: /projet_portfolio/public/index.php?page=article&id=' . $id . '&comment_deleted=1');
+            exit();
+        }
+
+        if (!empty($_POST['update_comment_id']) && isset($_POST['content'])) {
+            $contentUpdate = trim($_POST['content']);
+            if ($contentUpdate !== '') {
+                $commentManager->updateComment((int)$_POST['update_comment_id'], $contentUpdate);
+                header('Location: /projet_portfolio/public/index.php?page=article&id=' . $id . '&comment_updated=1');
+                exit();
+            }
+        }
+    }
+
+
+    // Comment form
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        if (empty($_SESSION['connect'])) {
+            $error = "You must be logged in to comment.";
+        } else {
+            // 🔹 Nom récupéré depuis la session, pas depuis le formulaire
+            $authorName = !empty($_SESSION['name']) ? $_SESSION['name'] : ($_SESSION['email'] ?? '');
+            $content    = trim($_POST['content'] ?? '');
+
+            if ($content === '') {
+                $error = "Please write a comment.";
+            } else {
+                $commentManager->createComment($id, $authorName, $content);
+
+                $_SESSION['comment_success'] = 1;
+                header('Location: /projet_portfolio/public/index.php?page=article&id=' . $id);
+                exit();
+            }
+        }
+    }
+
+    // Get comments to display
+    $comments = $commentManager->getCommentsByArticleId($id);
+
+    require __DIR__ . '/../view/articleView.php';
+}
+
 function pageError(){
 
     require __DIR__ . '/../view/errorView.php';
 }
-
 function contact(){
 
     require __DIR__ . '/../view/contactView.php';
@@ -168,6 +234,7 @@ function logIn(){
             $_SESSION['connect'] = 1;
             $_SESSION['email'] =$user['email'];
             $_SESSION['role'] =$user['role'];
+            $_SESSION['name'] = !empty($user['name']) ? $user['name'] : $user['email'];
 
             // Remember me
             if(isset($_POST['auto'])){
@@ -200,11 +267,13 @@ function logOut(){
 function register(){
 
     // Check if the form isn't empty.
-    if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_two'])){
+    if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_two'])){
 
+    $name           = trim($_POST['name']);
     $email          = $_POST['email'];
     $password       = $_POST['password'];
     $passwordTwo    = $_POST['password_two'];
+    
 
     // Check if the passwords are the same.
     if($password != $passwordTwo){
@@ -225,7 +294,7 @@ function register(){
     }
 
     // Add the user
-    $userManager->createUser($email, $password);
+    $userManager->createUser($name,$email,$password);
 
     // If success.
         header('Location: /projet_portfolio/public/index.php?page=login&success=1');

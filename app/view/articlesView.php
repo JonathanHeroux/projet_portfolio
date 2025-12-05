@@ -99,8 +99,9 @@ $formOpen = isset($_GET['success']) && !isset($_GET['updated']) && !isset($_GET[
                             <?php endif; ?>
                         </div>
                         <div class="card-body">
-                            <p class="card-text"><?= nl2br(htmlspecialchars($article['teaser'])) ?> </p>
+                            <p class="card-text"><?= nl2br(htmlspecialchars($article['teaser'])) ?></p>
                             <h5 class="card-title mt-2"><?= htmlspecialchars($article['title']) ?></h5>
+                            <a href="index.php?page=article&id=<?= (int)$article['id'] ?>" class="btn btn-neon mt-3">Read article</a>
                         </div>
                     </div>
                 </div>
