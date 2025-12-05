@@ -32,3 +32,10 @@ Languages
 - JS
 - Bootstrap
 - SCSS
+
+Roadmap / Planned Features
+
+Fully functional contact form
+Project categories
+EN/FR multilingual support
+Improved subscribe security system
